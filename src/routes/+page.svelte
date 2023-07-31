@@ -9,4 +9,5 @@
 	<li><a href="/event/forwarding"><h3>Component Event Forwarding</h3></a></li>
 	<li><a href="/directive"><h3>Class Directive</h3></a></li>
 	<li><a href="/binding"><h3>Binding</h3></a></li>
+	<li><a href="/binding/group"><h3>Binding: Group (checkbox and radio)</h3></a></li>
 </ul>
