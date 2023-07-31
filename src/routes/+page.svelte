@@ -8,4 +8,5 @@
 	<li><a href="/event/component"><h3>Component Event</h3></a></li>
 	<li><a href="/event/forwarding"><h3>Component Event Forwarding</h3></a></li>
 	<li><a href="/directive"><h3>Class Directive</h3></a></li>
+	<li><a href="/binding"><h3>Binding</h3></a></li>
 </ul>
