@@ -1,4 +1,4 @@
-<h1>Freecodecamp tutorial</h1>
+<h1>Freecodecamp Tutorial By Li Hau Tan</h1>
 <ul>
 	<li><a href="/reactivity"><h3>Reactivity and Reactive Declaration</h3></a></li>
 	<li><a href="/event"><h3>Attach Event in Svelte</h3></a></li>
@@ -6,4 +6,5 @@
 	<li><a href="/tick/input"><h3>Tick input</h3></a></li>
 	<li><a href="/props"><h3>Component and Props</h3></a></li>
 	<li><a href="event/component"><h3>Component Event</h3></a></li>
+	<li><a href="event/forwarding"><h3>Component Event Forwarding</h3></a></li>
 </ul>
