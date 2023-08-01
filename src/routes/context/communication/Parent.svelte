@@ -7,6 +7,8 @@
 <label><input type="checkbox" bind:checked={show} /> Show</label>
 
 {#if show}
+	<!-- <Child1 on:click /> -->
+	<!-- <Child1 on:click /> -->
 	<Child1 />
 	<Child1 />
 {/if}

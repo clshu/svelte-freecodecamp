@@ -6,6 +6,12 @@
 	// let color = '#ff0000';
 	const colorListener = new Set();
 
+	const onClick = () => {
+		count++;
+		// 	color = count % 2 === 0 ? 'red' : 'blue';
+		// 	setContext('color', color);
+	};
+
 	let colorObj = {
 		color: '#ff0000',
 		// regester liensters
@@ -19,12 +25,7 @@
 	$: colorListener.forEach((fn) => fn(colorObj.color));
 
 	setContext('color', colorObj);
-
-	const onClick = () => {
-		count++;
-		// 	color = count % 2 === 0 ? 'red' : 'blue';
-		// 	setContext('color', color);
-	};
+	setContext('click', onClick);
 </script>
 
 <p>
@@ -33,6 +34,6 @@
 	>
 </p>
 
-<Parent on:click={onClick} />
+<Parent />
 
 <p>Count: {count}</p>
