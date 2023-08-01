@@ -1,9 +1,6 @@
 <script>
-	import { setContext } from 'svelte';
 	import Child1 from './Child1.svelte';
-	import Child2 from './Child2.svelte';
 
-	setContext('color', 'blue');
 	let show = true;
 </script>
 
@@ -11,5 +8,5 @@
 
 {#if show}
 	<Child1 />
-	<Child2 />
+	<Child1 />
 {/if}
