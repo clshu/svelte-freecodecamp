@@ -12,4 +12,5 @@
 	<li><a href="/binding/group"><h3>Binding: Group (checkbox and radio)</h3></a></li>
 	<li><a href="/binding/this"><h3>Binding: this</h3></a></li>
 	<li><a href="/lifecycle"><h3>Component Lifecycle</h3></a></li>
+	<li><a href="/lifecycle/onmount"><h3>Component Lifecycle: onMount</h3></a></li>
 </ul>
