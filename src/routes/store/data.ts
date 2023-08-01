@@ -1,17 +1,21 @@
-export let value = '';
-let subscribers = [];
+import { writable } from 'svelte/store';
 
-export const update = (newValue) => {
-	value = newValue;
+export const valueStore = writable('');
 
-	subscribers.forEach((fn) => fn(value));
-};
+// export let value = '';
+// let subscribers = [];
 
-export const subscribe = (fn) => {
-	subscribers.push(fn);
-	console.log(`sub: subscribers size: ${subscribers.length}`);
-	return function unsubscribe(fn) {
-		subscribers.splice(subscribers.indexOf(fn), 1);
-		console.log(`unsub: subscribers size: ${subscribers.length}`);
-	};
-};
+// export const update = (newValue) => {
+// 	value = newValue;
+
+// 	subscribers.forEach((fn) => fn(value));
+// };
+
+// export const subscribe = (fn) => {
+// 	subscribers.push(fn);
+// 	console.log(`sub: subscribers size: ${subscribers.length}`);
+// 	return function unsubscribe(fn) {
+// 		subscribers.splice(subscribers.indexOf(fn), 1);
+// 		console.log(`unsub: subscribers size: ${subscribers.length}`);
+// 	};
+// };

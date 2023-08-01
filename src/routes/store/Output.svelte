@@ -1,16 +1,20 @@
 <script>
-	import { value, subscribe } from './data';
+	import { valueStore } from './data';
 	import { onMount } from 'svelte';
 
-	let _value = value;
+	let _value;
 
 	onMount(() => {
 		// unsubscribe is returned by subscribe
 		// and is returned again by onMount()
 		// It will be called when the component is destroyed
-		return subscribe(() => {
+		const unsubscribe = valueStore.subscribe((value) => {
 			_value = value;
 		});
+		return unsubscribe;
+		// return subscribe(() => {
+		// 	_value = value;
+		// });
 	});
 </script>
 
