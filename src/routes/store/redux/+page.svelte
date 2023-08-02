@@ -1,13 +1,14 @@
 <script lang="ts">
 	import store, { decremented, incremented } from './store';
-	import { onMount } from 'svelte';
+	// import { onMount } from 'svelte';
 
-	let state = 0;
-	onMount(() => {
-		return store.subscribe(() => {
-			state = store.getState();
-		});
-	});
+	// redux store implementation
+	// let state = 0;
+	// onMount(() => {
+	// 	return store.subscribe(() => {
+	// 		state = store.getState();
+	// 	});
+	// });
 
 	const increment = () => {
 		store.dispatch(incremented());
@@ -18,5 +19,5 @@
 </script>
 
 <button on:click={decrement}>-</button>
-<span>{state}</span>
+<span>{$store}</span>
 <button on:click={increment}>+</button>

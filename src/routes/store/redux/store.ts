@@ -28,4 +28,14 @@ const reduxStore = configureStore({
 	reducer: counterSlice.reducer
 });
 
-export default reduxStore;
+const svelteStore = {
+	...reduxStore,
+	subscribe(fn) {
+		fn(reduxStore.getState()); // initial value
+		// return and unsubscribe function
+		return reduxStore.subscribe(() => {
+			fn(reduxStore.getState());
+		});
+	}
+};
+export default svelteStore;
