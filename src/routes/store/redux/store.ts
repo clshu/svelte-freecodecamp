@@ -1,4 +1,5 @@
 // import './patchProcess';
+import { makeReduxStoreToSvelteStore } from '$lib/utils/converStore';
 import { createSlice, configureStore } from '@reduxjs/toolkit';
 import { createStore } from '@reduxjs/toolkit';
 
@@ -28,14 +29,6 @@ const reduxStore = configureStore({
 	reducer: counterSlice.reducer
 });
 
-const svelteStore = {
-	...reduxStore,
-	subscribe(fn) {
-		fn(reduxStore.getState()); // initial value
-		// return and unsubscribe function
-		return reduxStore.subscribe(() => {
-			fn(reduxStore.getState());
-		});
-	}
-};
+const svelteStore = makeReduxStoreToSvelteStore(reduxStore);
+
 export default svelteStore;
