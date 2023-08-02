@@ -1,6 +1,15 @@
-import { writable } from 'svelte/store';
+import { readable } from 'svelte/store';
 
-export const valueStore = writable('');
+// readable only supports one subscriber
+// only set up once
+export const valueStore = readable('hello', (set) => {
+	console.log('valueStore readable started');
+	const timeoutId = setTimeout(() => {
+		set('world');
+	}, 1000);
+
+	return () => clearTimeout(timeoutId);
+});
 
 // export let value = '';
 // let subscribers = [];

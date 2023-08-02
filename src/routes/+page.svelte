@@ -16,4 +16,5 @@
 	<li><a href="/context"><h3>Context</h3></a></li>
 	<li><a href="/context/communication"><h3>Communicating Through Context</h3></a></li>
 	<li><a href="/store"><h3>Intro to Svelte Store</h3></a></li>
+	<li><a href="/store/contract"><h3>Svelte Store Contract</h3></a></li>
 </ul>
