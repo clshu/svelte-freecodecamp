@@ -1,7 +1,5 @@
 // import './patchProcess';
-import { makeReduxStoreToSvelteStore } from '$lib/utils/converStore';
 import { createSlice, configureStore } from '@reduxjs/toolkit';
-import { createStore } from '@reduxjs/toolkit';
 
 export const counterSlice = createSlice({
 	name: 'counter',
@@ -25,10 +23,34 @@ export const counterSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { incremented, decremented } = counterSlice.actions;
 
+// Convert redux store to svelte store by overriding its subscribe() method
+const reduxStoreToSvelteStore = (reduxStore) => {
+	return {
+		...reduxStore,
+		subscribe(fn) {
+			fn(reduxStore.getState()); // initial value
+			// return and unsubscribe function
+			return reduxStore.subscribe(() => {
+				fn(reduxStore.getState());
+			});
+		}
+	};
+};
+
+const svelteStoreEnhancer = (createStoreApi) => {
+	return (reducer, initialState) => {
+		const reduxStore = createStoreApi(reducer, initialState);
+		return reduxStoreToSvelteStore(reduxStore);
+	};
+};
+
 const reduxStore = configureStore({
-	reducer: counterSlice.reducer
+	reducer: counterSlice.reducer,
+	enhancers: [svelteStoreEnhancer]
 });
 
-const svelteStore = makeReduxStoreToSvelteStore(reduxStore);
+export default reduxStore;
 
-export default svelteStore;
+// const svelteStore = reduxStoreToSvelteStore(reduxStore);
+
+// export default svelteStore;
